@@ -19,6 +19,7 @@ from django.urls import path, include
 from users import views as user_views
 from django.conf import settings
 from django.conf.urls.static import static
+from core.views import index_core
 
 
 urlpatterns = [
@@ -62,6 +63,7 @@ urlpatterns = [
         name="password_reset_complete",
     ),
     path("profile/", user_views.profile, name="profile"),
+    path("core/", include("core.urls")),
 ]
 
 if settings.DEBUG:
